@@ -4,6 +4,8 @@ let size_display = document.getElementById("size-display");
 let draw_box = document.querySelector(".draw-box");
 let btn = document.getElementById("reset");
 let slider_size = parseInt(slider.value);
+let buttons = document.querySelectorAll("button");
+let current_color = "#333";
 
 draw_box.removeChild(draw_box.childNodes[0]);
 draw_box.removeChild(draw_box.childNodes[256]);
@@ -13,11 +15,10 @@ begin(squares);
 function begin(sqrs) {
     sqrs.forEach(sqr => {
         sqr.addEventListener("mouseenter", function () {
-            sqr.style.backgroundColor = "black";
+            sqr.style.backgroundColor = current_color;
         });
     });
 }
-
 
 // Reset Button 
 btn.addEventListener("click", btn = () => clear());
@@ -43,6 +44,33 @@ function increase(n) {
         draw_box.appendChild(sqr);
     } 
 }
+// Color changer 
+document.getElementById("colorPicker").addEventListener("mouseleave", function(e) {
+    current_color = e.target.value;
+    console.log(e.target.value);
+});
+
+//Remove active class
+function inactive () {
+    buttons.forEach(btn => {
+        if(btn.classList.contains("active"))
+        btn.classList.remove("active");
+    }); 
+}
+
+// Eraser button 
+document.getElementById("eraser").addEventListener("click", function (e) {
+    inactive();
+    e.target.classList.add("active");
+    current_color = "white";
+});
+
+// Color button 
+document.getElementById("color").addEventListener("click", function (e) {
+    inactive();
+    e.target.classList.add("active");
+    current_color = "black";
+});
 
 // Slider to increase or decrease square matrix.
 slider.addEventListener("click", function() {

@@ -1,11 +1,30 @@
 body {
+    margin: 0%;
+    background-color: #ededed;
+}
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ededed;
-    margin: 0%;
+    flex-wrap: wrap;
+    margin: 0.5rem;
     height: 100vh;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header, footer {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 2px solid blueviolet;
+    background-color: #ccc;
+    text-align: center;
+    color: #333;
+    padding: 0.5rem;
+    transition: all 500ms ease-in-out;
+}
+
+header:hover {
+    box-shadow: 0 0 3px blueviolet;
 }
 
 .draw-box {
@@ -15,7 +34,15 @@ body {
     box-shadow: 0 0 3px black;
     flex-wrap: wrap;
     margin: 4rem;
+    margin-top: 0;
     gap: 0;
+}
+
+#colorPicker {
+    height: 4rem;
+    width: 4rem;
+    padding: 0%;
+    border: none;
 }
 
 .controls {
@@ -41,7 +68,7 @@ body {
     background: #fff;
 }
 
-.reset {
+button {
     width: 7.5rem;
     height: 2.5rem;
     font-size: 1.1rem;
@@ -50,8 +77,16 @@ body {
     border-radius: 5px;
 }
 
-.reset:hover {
-    transform: scale(1.05);
-    transition: all 250ms ease;
-    border: 1px solid #007;
+button:hover {
+    transition: all 100ms ease;
+    border: 1px solid #33F;
+}
+
+.active {
+    background-color: #336;
+    color: white;
+}
+
+h1 {
+    margin: 0;
 }
