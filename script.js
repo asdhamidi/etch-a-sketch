@@ -48,6 +48,8 @@ function increase(n) {
 document.getElementById("colorPicker").addEventListener("mouseleave", function(e) {
     current_color = e.target.value;
     console.log(e.target.value);
+    inactive();
+    document.getElementById("color").classList.add("active");
 });
 
 //Remove active class
@@ -69,7 +71,7 @@ document.getElementById("eraser").addEventListener("click", function (e) {
 document.getElementById("color").addEventListener("click", function (e) {
     inactive();
     e.target.classList.add("active");
-    current_color = "black";
+    current_color = document.getElementById("colorPicker").value;
 });
 
 // Slider to increase or decrease square matrix.
